@@ -1,0 +1,329 @@
+/* ==================================================
+   BASE GERAL
+   - Reset básico e estilo global
+================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("img/fundo-medieval.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Uncial Antiqua", serif;
+  color: #2b1b0f;
+}
+
+/* ==================================================
+   TÍTULO DA FICHA
+================================================== */
+#titulo-ficha {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#titulo-ficha img {
+  max-width: 300px;
+  height: auto;
+}
+
+/* ==================================================
+   TOPO (NOME / ANTECEDENTE / MUTE)
+================================================== */
+#topo {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 10px 0;
+}
+
+.campo-topo label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #3b2a1a;
+}
+
+.campo-topo input {
+  width: 200px;
+  padding: 6px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  color: #2b1b0f;
+}
+
+/* Botão de Mute */
+#btn-mute {
+  width: 60px;
+  height: 60px;
+  background-image: url("img/mute-off.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#btn-mute.mutado {
+  background-image: url("img/mute-on.png");
+}
+
+/* ==================================================
+   LAYOUT PRINCIPAL
+================================================== */
+#ficha {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+#corpo {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#esquerda,
+#centro,
+#direita {
+  padding: 20px;
+  flex: 1;
+}
+
+/* ==================================================
+   GAVETAS (FECHADAS E ABERTAS)
+================================================== */
+.gaveta {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Gaveta Fechada */
+.gaveta-fechada {
+  background-image: url("img/textura-gaveta1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 20px;
+  color: #2b1b0f;
+}
+
+/* Gaveta Aberta */
+.gaveta-aberta {
+  background-image: url("img/textura-gaveta.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 24px 25px 60px;
+  width: 100%;
+  height: 100%;
+
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.gaveta-topo {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #2b1b0f;
+  pointer-events: none;
+}
+
+/* Select dentro da gaveta */
+.gaveta-aberta select {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+
+  padding-left: 20px;
+  padding-bottom: 50px;
+
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+
+  color: #2b1b0f;
+  font-weight: bold;
+  font-size: 16px;
+
+  pointer-events: auto;
+}
+
+/* Scrollbar do select */
+.gaveta-aberta select::-webkit-scrollbar {
+  width: 4px;
+}
+
+.gaveta-aberta select::-webkit-scrollbar-thumb {
+  background-color: rgb(134, 91, 27);
+  border-radius: 4px;
+}
+
+.gaveta-aberta select::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* ==================================================
+   TEXTAREAS (EXTRAS / FERRAMENTAS)
+================================================== */
+#esquerda textarea {
+  width: 100%;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  color: #2b1b0f;
+  margin-bottom: 10px;
+}
+
+/* ==================================================
+   MOLDURA DO PERSONAGEM (IMAGEM IA)
+================================================== */
+.moldura-personagem {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+
+  background-image: url("img/moldura-personagem.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+}
+
+.moldura-personagem img {
+  width: 50%;
+  height: auto;
+  border: none;
+}
+
+/* ==================================================
+   ATRIBUTOS (FORÇA, DESTREZA, ETC.)
+================================================== */
+#direita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.atributo {
+  margin-bottom: 10px;
+}
+
+.titulo-atributo {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.linha-atributo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linha-atributo button {
+  width: 40px;
+  height: 40px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.btn-menos {
+  background-image: url("img/botao-menos.png");
+}
+
+.btn-mais {
+  background-image: url("img/botao-mais.png");
+}
+
+.valor-atributo {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+/* Pontos restantes */
+#pontos-restantes {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #2b1b0f;
+}
+
+/* ==================================================
+   BOTÃO GERAR CARD
+================================================== */
+#btn-gerar-card {
+  width: 200px;
+  height: 60px;
+
+  background-image: url("img/gerar-card.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: transparent;
+
+  display: block;
+  margin: 0 auto;
+
+  transition: transform 0.1s ease;
+}
+
+#btn-gerar-card:active {
+  transform: translateY(2px);
+}
+
+/* ==================================================
+   CARD FINAL
+================================================== */
+#card-personagem .card {
+  margin-top: 20px;
+  padding: 15px;
+
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5e7c6;
+
+  border: none;
+}

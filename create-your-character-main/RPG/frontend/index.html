@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ===========================
+       META E FONTES
+  ============================ -->
+  <meta charset="UTF-8">
+  <title>TABERNA DO ZELEY</title>
+
+  <!-- Ícone da aba -->
+  <link rel="icon" type="image/png" href="img/icone.png">
+
+  <!-- Fonte temática medieval -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ===========================
+       ÁUDIO AMBIENTE DA TABERNA
+  ============================ -->
+  <audio id="musica-taberna" src="audio/taberna.mp3" autoplay loop></audio>
+
+  <!-- ===========================
+       TÍTULO DA FICHA
+  ============================ -->
+  <div id="titulo-ficha">
+    <img src="img/titulo-ficha.png" alt="Ficha de personagem RPG">
+  </div>
+
+  <!-- ===========================
+       CAMPOS BÁSICOS (NOME / ANTECEDENTE)
+  ============================ -->
+  <div id="topo">
+
+    <!-- Campo Nome -->
+    <div class="campo-topo">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome">
+    </div>
+
+    <!-- Botão de Mute -->
+    <button id="btn-mute"></button>
+
+    <!-- Campo Antecedente -->
+    <div class="campo-topo">
+      <label for="antecedente">Antecedente</label>
+      <input type="text" id="antecedente" name="antecedente">
+    </div>
+
+  </div>
+
+  <!-- ===========================
+       CORPO PRINCIPAL DA FICHA
+  ============================ -->
+  <div id="ficha">
+
+    <div id="corpo">
+
+      <!-- =======================
+           COLUNA ESQUERDA
+           (GAVETAS + TEXTOS LIVRES)
+      ======================== -->
+      <div id="esquerda">
+
+        <!-- GAVETA: RAÇA -->
+        <div class="gaveta" data-tipo="raca">
+          <div class="gaveta-fechada"><span>Raça</span></div>
+          <div class="gaveta-aberta">
+            <div class="gaveta-topo"><span>Raça</span></div>
+            <select id="raca" size="10"></select>
+          </div>
+        </div>
+
+        <!-- GAVETA: SUB-RAÇA -->
+        <div class="gaveta" data-tipo="subraca">
+          <div class="gaveta-fechada"><span>Sub-raça</span></div>
+          <div class="gaveta-aberta">
+            <div class="gaveta-topo"><span>Sub-raça</span></div>
+            <select id="subraca" size="10"></select>
+          </div>
+        </div>
+
+        <!-- GAVETA: CLASSE -->
+        <div class="gaveta" data-tipo="classe">
+          <div class="gaveta-fechada"><span>Classe</span></div>
+          <div class="gaveta-aberta">
+            <div class="gaveta-topo"><span>Classe</span></div>
+            <select id="classe" size="10"></select>
+          </div>
+        </div>
+
+        <!-- GAVETA: SUB-CLASSE -->
+        <div class="gaveta" data-tipo="subclasse">
+          <div class="gaveta-fechada"><span>Sub-classe</span></div>
+          <div class="gaveta-aberta">
+            <div class="gaveta-topo"><span>Sub-classe</span></div>
+            <select id="subclasse" size="10"></select>
+          </div>
+        </div>
+
+        <!-- TEXTOS LIVRES -->
+        <label for="extras">Extras</label>
+        <textarea id="extras"></textarea>
+
+        <label for="ferramentas">Ferramentas</label>
+        <textarea id="ferramentas"></textarea>
+
+      </div>
+
+      <!-- =======================
+           COLUNA CENTRAL
+           (MOLDURA + IMAGEM IA)
+      ======================== -->
+      <div id="centro">
+        <div class="moldura-personagem">
+          <img id="imagem-personagem" alt="Imagem do personagem">
+        </div>
+      </div>
+
+      <!-- =======================
+           COLUNA DIREITA
+           (ATRIBUTOS + PONTOS)
+      ======================== -->
+      <div id="direita">
+
+        <!-- Cada atributo segue o mesmo padrão -->
+        <div id="forca" class="atributo" data-atributo="forca">
+          <span class="titulo-atributo">Força</span>
+          <div class="linha-atributo">
+            <button class="btn-menos"></button>
+            <span class="valor-atributo">0</span>
+            <button class="btn-mais"></button>
+          </div>
+        </div>
+
+        <div id="destreza" class="atributo" data-atributo="destreza">
+          <span class="titulo-atributo">Destreza</span>
+          <div class="linha-atributo">
+            <button class="btn-menos"></button>
+            <span class="valor-atributo">0</span>
+            <button class="btn-mais"></button>
+          </div>
+        </div>
+
+        <div id="constituicao" class="atributo" data-atributo="constituicao">
+          <span class="titulo-atributo">Constituição</span>
+          <div class="linha-atributo">
+            <button class="btn-menos"></button>
+            <span class="valor-atributo">0</span>
+            <button class="btn-mais"></button>
+          </div>
+        </div>
+
+        <div id="inteligencia" class="atributo" data-atributo="inteligencia">
+          <span class="titulo-atributo">Inteligência</span>
+          <div class="linha-atributo">
+            <button class="btn-menos"></button>
+            <span class="valor-atributo">0</span>
+            <button class="btn-mais"></button>
+          </div>
+        </div>
+
+        <div id="sabedoria" class="atributo" data-atributo="sabedoria">
+          <span class="titulo-atributo">Sabedoria</span>
+          <div class="linha-atributo">
+            <button class="btn-menos"></button>
+            <span class="valor-atributo">0</span>
+            <button class="btn-mais"></button>
+          </div>
+        </div>
+
+        <div id="carisma" class="atributo" data-atributo="carisma">
+          <span class="titulo-atributo">Carisma</span>
+          <div class="linha-atributo">
+            <button class="btn-menos"></button>
+            <span class="valor-atributo">0</span>
+            <button class="btn-mais"></button>
+          </div>
+        </div>
+
+        <!-- Pontos restantes -->
+        <div id="pontos-restantes">
+          <span>Pontos restantes:</span>
+          <span id="valor-pontos-restantes">27</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =======================
+         ÁREA DE CARD FINAL
+    ======================== -->
+    <button id="btn-gerar-card">Gerar Card</button>
+    <div id="card-personagem"></div>
+
+  </div>
+
+  <!-- ===========================
+       ÁUDIOS DE EFEITO
+  ============================ -->
+  <audio id="som-mais" src="audio/moeda-mais.mp3"></audio>
+  <audio id="som-menos" src="audio/moeda-menos.mp3"></audio>
+  <audio id="folha-abre" src="audio/folha-abre.mp3"></audio>
+  <audio id="folha-fecha" src="audio/folha-fecha.mp3"></audio>
+  <audio id="som-gerar-card" src="audio/gerar-card.mp3"></audio>
+
+  <!-- JS principal -->
+  <script src="myscripts.js"></script>
+
+</body>
+</html>

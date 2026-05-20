@@ -1,0 +1,1 @@
+This is a project for a character creation page. It includes an attribute point allocation system, classes, races, and the whole D&D‑style profile management structure. The next step is to add an AI‑generated image for the character, but I don’t really have the necessary skills for that part.
